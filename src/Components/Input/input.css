@@ -1,0 +1,60 @@
+.input-group{
+width: 360px;
+position: relative;
+margin: 32px;
+border: 1px solid black;
+border-radius: 8px;
+padding-right: 34px;
+}
+
+.error{
+    border-color: red !important;
+}
+
+.error label{
+    color: red !important;
+}
+
+.input-group input{
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    font-size: 20px;
+    padding: 12px 20px;
+    z-index: 9
+}
+
+.input-group input:focus-visible{
+    outline: none;
+
+}
+
+.input-group:focus-within{
+    border-color: green;
+}
+
+.input-group label{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 12px 20px;
+    background-color: transparent;
+    transition: top 100ms;
+    cursor: text;
+    z-index: -1;
+}
+
+.input-group:focus-within label,
+.input-group input:not(:placeholder-shown) ~ label{
+    padding: 0 8px;
+    bottom: auto;
+    top: -12px;
+    left: 20px;
+    background-color: white;
+    z-index: 1;
+}
+
+.input-group:focus-within label{
+    color: green;
+}
