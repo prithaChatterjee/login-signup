@@ -1,0 +1,21 @@
+.m_auto{
+    margin: auto;
+}
+
+.buttonBg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginBg{
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+    height: 100%;
+    display: flex;
+}
+
+.cardBg{
+    border-radius: 10px;
+    padding: 20px;
+}

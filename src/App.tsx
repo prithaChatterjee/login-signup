@@ -1,11 +1,10 @@
 import './App.css';
-import Input from './Components/Input/Input';
+import Login from './Pages/Login/Login';
 
 function App() {
   return (
     <div className="App">
-      <Input value={''} type="text" name='firstname' label="firstname" error={true} />
-      <Input value={""} type="number" name='lastname' label="lastname" />
+      <Login />
     </div>
   );
 }
