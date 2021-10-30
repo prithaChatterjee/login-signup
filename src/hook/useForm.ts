@@ -12,19 +12,20 @@ export default function useForm<IT extends { [key: string]: string | number | nu
             ...formValues, [e.target.name]: e.target.value ? validtype ? e.target.value :
                 formValues[e.target.name] : ""
         })
-        if (e.target.required) {
-            if (!e.target.value) {
-                seterrors({ ...errors, [`${e.target.name}_error`]: `${e.target.name} is required` })
-            } else {
+        if (e.target.value) {
+            if (validationType) {
+                delete errors[`${e.target.name}_error`]
+                seterrors({ ...errors })
+            }else{
+                seterrors({ ...errors, [`${e.target.name}_error`]: `${e.target.name.replace(/_/g, " ")} is not Valid` })
+            }
+        } else {
+            if (e.target.required) {
+                seterrors({ ...errors, [`${e.target.name}_error`]: `${e.target.name.replace(/_/g, " ")} is required` })
+            }else{
                 delete errors[`${e.target.name}_error`]
                 seterrors({ ...errors })
             }
-        }
-        if (!validationType) {
-            seterrors({ ...errors, [`${e.target.name}_error`]: `${e.target.name.replace(/_/g, " ")} is not Valid` })
-        } else {
-            delete errors[`${e.target.name}_error`]
-            seterrors({ ...errors })
         }
     }
 
