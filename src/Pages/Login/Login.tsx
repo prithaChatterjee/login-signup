@@ -1,8 +1,11 @@
+import { useContext } from 'react';
 import Button from '../../Components/Button/Button'
 import Card from '../../Components/Card/Card'
 import Input from '../../Components/Input/Input'
 import useForm from '../../hook/useForm';
 import loginPageStyle from "./login.module.css";
+import RootContext from "../../context/root-context";
+import {userTypes} from "../../types/user";
 
 export type formValuesProps = {
     email: string,
@@ -14,11 +17,9 @@ export type errorProps = {
     password_error: string
 }
 
-const formSubmit = (values: Object) => {
-    console.log(values)
-}
 
 const Login = () => {
+    const context = useContext(RootContext)
     const { formValues, handleInputChange, errors, onSubmit} = useForm<formValuesProps>({
         email: "",
         password: ""
@@ -26,6 +27,9 @@ const Login = () => {
         email_error: "",
         password_error: ""
     })
+    const formSubmit = (values: userTypes) => {
+        context.updateuserdetails(values)
+    }
     return (
         <form noValidate className={loginPageStyle.loginBg} onSubmit={(e) => onSubmit(e, formSubmit)}>
             <Card className={`${loginPageStyle.m_auto} ${loginPageStyle.cardBg}`}>

@@ -1,10 +1,10 @@
 import './App.css';
-import Login from './Pages/Login/Login';
+import Rounting from './Rounting';
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      <Rounting />
     </div>
   );
 }
